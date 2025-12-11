@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Applications — Information</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <header>
+    <h1>AI Applications — Overview</h1>
+    <p>Names, Purpose and Impact</p>
+  </header>
+
+  <style>
+   /* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY BACKGROUND */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #19296e 0%, #10013c 100%);
+    color: white;
+    line-height: 1.7;
+    min-height: 100vh;
+    padding-bottom: 40px;
+}
+
+/* NAVBAR */
+.navbar {
+    background: linear-gradient(135deg, #19296e 0%,#10013c 100%);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+}
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1.2rem 3rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+}
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+.nav-links a:hover::after {
+    width: 80%;
+}
+
+.nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+.nav-icons {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 1.3rem;
+    color: white;
+}
+.nav-icons i {
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+.nav-icons i:hover{
+    transform: scale(1.2);
+    color: #ffd700;
+}
+
+/* HEADER */
+header {
+    text-align: center;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #ffd700;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.4);
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #d9e4ff;
+    margin-top: 10px;
+}
+
+
+/* CONTAINER */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* INTRO BOX */
+.intro {
+    background: white;
+    color: #2c3e50;
+    padding: 22px 26px;
+    border-radius: 15px;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+/* EXPLORE BUTTON */
+.explore-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #19296e, #10013c);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    transition: 0.3s;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.explore-btn:hover {
+    transform: translateY(-3px);
+}
+
+/* GRID OF CARDS */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* CARDS */
+.card {
+    background: white;
+    padding: 22px;
+    border-radius: 18px;
+    color: #2c3e50;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.25);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 45px rgba(0,0,0,0.35);
+}
+
+.card h3 {
+    font-size: 1.45rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: #19296e;
+}
+
+/* TAG */
+.tag {
+    background: #19296e;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    margin-left: 8px;
+}
+
+/* SECTION TITLE */
+.section-title {
+    color: #10013c;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-top: 12px;
+    margin-bottom: 6px;
+}
+
+/* PARAGRAPH */
+.card p {
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* FOOTER */
+footer {
+    background: linear-gradient(135deg, #19296e 0%, #10013c 100%);
+    color: white;
+    padding: 4rem 3rem 2rem;
+}
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+.footer-col h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    color: #ffd700;
+    font-weight: 700;
+}
+.footer-col p {
+    line-height: 1.9;
+    opacity: 0.9;
+    margin-bottom: 0.8rem;
+    font-size: 1.05rem;
+}
+.footer-col i {
+    color: #667eea;
+    margin-right: 0.5rem;
+}
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+.social-links a:hover {
+    background: linear-gradient(135deg, #19296e, #10013c);
+    transform: translateY(-5px);
+}
+.social-links img {
+    width: 25px;
+    height: 25px;
+}
+.footer-bottom {
+    text-align: center;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 0.8;
+    font-size: 1.05rem;
+}
+.explore-btn {
+  display: inline-block;
+  margin: 20px 0;
+  background: #1e246c;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.explore-btn:hover {
+  background: #1e246c;
+  transform: translateY(-2px);
+}
+
+  </style>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="nav-container">
+            <nav class="nav-links">
+                <a href="main.html">Home</a>
+                <a href="#About">About</a>
+                <a href="#services">Services</a>
+                <a href="#About">Contact</a>
+            </nav>
+            </div>
+        </div>
+    </header>
+
+  <header>
+    <h1>AI Applications — Overview</h1>
+    <p>Names, Purpose and Impact</p>
+  </header>
+
+  <div class="container">
+
+    <div class="intro">
+      <strong>Introduction:</strong>
+      <br><br>
+      Artificial Intelligence (AI) applications are transforming how people learn, work, create and communicate. 
+      Below is a simple list of the most popular AI apps with their purpose and real-world impact.
+    </div>
+    <a href="main.html" class="explore-btn">Explore More</a>
+
+
+
+    <div class="grid" id="services">
+
+      <div class="card">
+        <h3>ChatGPT — OpenAI <span class="tag">Conversational AI</span></h3>
+        <div class="section-title">Purpose</div>
+        <p>Answers questions, writes content, helps with coding and supports learning.</p>
+        <div class="section-title">Impact</div>
+        <p>Changed research and education. Boosts productivity for students and developers.</p>
+      </div>
+
+      <div class="card">
+        <h3>Google Gemini <span class="tag">Multimodal</span></h3>
+        <div class="section-title">Purpose</div>
+        <p>AI for search, video summarizing and image analysis.</p>
+        <div class="section-title">Impact</div>
+        <p>Improved searching and competes strongly in AI assistance.</p>
+      </div>
+
+      <div class="card">
+        <h3>Microsoft Copilot <span class="tag">Productivity</span></h3>
+        <div class="section-title">Purpose</div>
+        <p>Creates documents, presentations and helps write code.</p>
+        <div class="section-title">Impact</div>
+        <p>Increases workplace efficiency and enhances Microsoft apps.</p>
+      </div>
+
+      <div class="card">
+        <h3>Midjourney <span class="tag">Image Generation</span></h3>
+        <div class="section-title">Purpose</div>
+        <p>Creates high-quality AI images and artwork.</p>
+        <div class="section-title">Impact</div>
+        <p>Revolutionized design and creative industries.</p>
+      </div>
+
+      <div class="card">
+        <h3>Adobe Firefly <span class="tag">Image Editing</span></h3>
+        <div class="section-title">Purpose</div>
+        <p>AI editing: remove/add objects, enhance images.</p>
+        <div class="section-title">Impact</div>
+        <p>Makes advanced editing easier and faster.</p>
+      </div>
+
+      <div class="card">
+        <h3>Canva AI <span class="tag">Design</span></h3>
+        <div class="section-title">Purpose</div>
+        <p>Generates designs and presentations instantly.</p>
+        <div class="section-title">Impact</div>
+        <p>Helps non-designers make professional content.</p>
+      </div>
+
+      <div class="card">
+        <h3>Duolingo Max <span class="tag">Education</span></h3>
+        <div class="section-title">Purpose</div>
+        <p>AI-powered language learning and conversations.</p>
+        <div class="section-title">Impact</div>
+        <p>Improves learning and student engagement.</p>
+      </div>
+
+      <div class="card">
+        <h3>Notion AI <span class="tag">Productivity</span></h3>
+        <div class="section-title">Purpose</div>
+        <p>Writes notes, summarizes text and organizes tasks.</p>
+        <div class="section-title">Impact</div>
+        <p>Boosts organization for students and teams.</p>
+      </div>
+
+      <div class="card">
+        <h3>Replika <span class="tag">Companion</span></h3>
+        <div class="section-title">Purpose</div>
+        <p>AI chatbot for emotional support and conversation.</p>
+        <div class="section-title">Impact</div>
+        <p>Used for communication practice and support.</p>
+      </div>
+
+      <div class="card">
+        <h3>Siri · Alexa · Google Assistant <span class="tag">Voice AI</span></h3>
+        <div class="section-title">Purpose</div>
+        <p>Voice assistants for commands, music and smart devices.</p>
+        <div class="section-title">Impact</div>
+        <p>Introduced AI into everyday household use.</p>
+      </div>
+
+    </div>
+  </div>
+
+ <footer id="About">
+        <div class="footer-container">
+            <div  class="footer-col">
+                <h3>About Us</h3>
+                <p>We are an AI-powered platform dedicated to providing intelligent solutions in Healthcare, Education, Space, Smart Agriculture, and Psychology to shape a smarter future.</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Contact Info</h3>
+                <p><i class="fa-solid fa-envelope"></i> Email: AI@gmail.com</p>
+                <p><i class="fa-solid fa-phone"></i> Phone: +201068414683</p>
+                <p><i class="fa-solid fa-location-dot"></i> Location: Fayoum, Egypt</p>
+            </div>
+            <div class="footer-col">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/name" target="_blank" aria-label="Facebook">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Logo_de_Facebook.png/1200px-Logo_de_Facebook.png" alt="Facebook">
+                    </a>
+                    <a href="https://www.instagram.com/name" target="_blank" aria-label="Instagram">
+                        <img src="https://png.pngtree.com/png-vector/20221018/ourmid/pngtree-instagram-icon-png-image_6315974.png" alt="Instagram">
+                    </a>
+                    <a href="https://www.linkedin.com/in/name" target="_blank" aria-label="LinkedIn">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/1024px-LinkedIn_icon.svg.png" alt="LinkedIn">
+                    </a>
+                    <a href="https://twitter.com/yourPageName" target="_blank" aria-label="Twitter">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Twitter_new_X_logo.png" alt="Twitter">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 All Rights Reserved | AI Project Website</p>
+        </div>
+    </footer>
+</body>
+</html>
